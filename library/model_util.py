@@ -906,7 +906,7 @@ def load_models_from_stable_diffusion_checkpoint(v2, ckpt_path, device="cpu", dt
         converted_text_encoder_checkpoint = convert_ldm_clip_checkpoint_v1(state_dict)
 
         logging.set_verbosity_error()  # don't show annoying warning
-        text_model = CLIPTextModel.from_pretrained("openai/clip-vit-large-patch14").to(device)
+        text_model = CLIPTextModel.from_pretrained("./openai/clip-vit-large-patch14").to(device)
         logging.set_verbosity_warning()
 
         info = text_model.load_state_dict(converted_text_encoder_checkpoint)
